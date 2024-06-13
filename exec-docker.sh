@@ -1,7 +1,13 @@
 #!/bin/bash
 
-# 提示用户输入搜索关键词
-read -p "请输入搜索的Docker镜像关键字: " keyword
+# 检查是否提供了命令行参数
+if [ $# -eq 0 ]; then
+    # 如果没有提供参数，提示用户输入搜索关键词
+    read -p "请输入搜索的Docker镜像关键字: " keyword
+else
+    # 如果提供了参数，使用第一个参数作为搜索关键词
+    keyword=$1
+fi
 
 # 查找匹配关键词的容器
 containers=$(docker ps --format "{{.ID}} {{.Image}} {{.Names}}" | grep "$keyword")
@@ -37,4 +43,3 @@ else
     # 进入选定的容器
     docker exec -it $container_id /bin/bash
 fi
-
