@@ -34,12 +34,6 @@ else
     # 提示用户选择一个容器ID
     read -p "请输入要进入的容器ID: " container_id
 
-    # 检查用户输入的容器ID是否有效
-    if [[ ! "$containers" =~ $container_id ]]; then
-        echo "无效的容器ID"
-        exit 1
-    fi
-
     # 进入选定的容器
     docker exec -it $container_id /bin/bash
 fi
