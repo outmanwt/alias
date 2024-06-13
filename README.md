@@ -1,6 +1,10 @@
 # alias
 一些便携的alias
 
+- pfind: pfind xxx # 查找xxx进程
+- hfind: hfind xxx # 查找xxx历史命令
+- dexec: dexec # 根据输入进入docker容器
+
 # 使用方法
 
 ```bash
